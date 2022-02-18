@@ -1,0 +1,55 @@
+function rot13(str) {
+  const res = [];
+  const input = str.split('');
+  const cipher = [
+    ['A', 'N'],
+    ['B', 'O'],
+    ['C', 'P'],
+    ['D', 'Q'],
+    ['E', 'R'],
+    ['F', 'S'],
+    ['G', 'T'],
+    ['H', 'U'],
+    ['I', 'V'],
+    ['J', 'W'],
+    ['K', 'X'],
+    ['L', 'Y'],
+    ['M', 'Z'],
+    ['N', 'A'],
+    ['O', 'B'],
+    ['P', 'C'],
+    ['Q', 'D'],
+    ['R', 'E'],
+    ['S', 'F'],
+    ['T', 'G'],
+    ['U', 'H'],
+    ['V', 'I'],
+    ['W', 'J'],
+    ['X', 'K'],
+    ['Y', 'L'],
+    ['Z', 'M'],
+    ];
+
+  input.map(l => {
+    // Check for non-letter characters
+    if(l.match(/\W/g)){
+      // If found add it to the response array.
+      res.push(l)
+    } else {
+      // If not use the cipher to decode the letter.
+      let lIndex;
+      for(let i = 0; i < cipher.length; i++){
+        lIndex = cipher[i][0].indexOf(l);
+        if(cipher[i][0] == l){
+          res.push(cipher[i][1])
+        }
+      }
+    }
+  });
+
+  // Return the joined response array.
+  return res.join('');
+}
+
+console.log(rot13("SERR PBQR PNZC"));
+console.log(rot13("SERR CVMMN!"));

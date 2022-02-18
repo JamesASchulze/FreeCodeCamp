@@ -1,0 +1,21 @@
+function palindrome(str) {
+  // Remove special characters and make all letters lower case.
+  const cleanStr = str.replace(/[-_,.*+?^${}()\s|[\]\\]/g,'').toLowerCase();
+
+  // Reverse the string.
+  const reverseStr = cleanStr
+          .split('')  // Conver to an array
+          .reverse()  // Reverse the array
+          .join('');  // Convert back to a string
+
+  // Compare the cleaned string to the reversed.
+  if(cleanStr === reverseStr){
+    return true;
+  } else {
+    return false;
+  }
+}
+
+
+
+console.log(palindrome("E- y*e_"));

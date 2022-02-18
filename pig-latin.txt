@@ -1,0 +1,54 @@
+function translatePigLatin(str) {
+  
+  // Returns the first consonant/consonant cluster.
+  const firstCons = (string) => {
+    const vowels = [ 'a', 'e', 'i', 'o', 'u' ];
+    let consCounter = 0;
+    let isConsonant = true;
+
+    // Loop through the string.
+    for ( let strI = 0; strI < string.length; strI++) {
+
+      // Loop through the vowels
+      for (let vowelI = 0; vowelI < vowels.length; vowelI++){
+        if(str[strI] == vowels[vowelI]){
+          isConsonant = false;
+        }
+      }
+      if (isConsonant){
+        consCounter++
+      }
+    }
+    return consCounter
+  };
+
+  // console.log(firstCons(res))
+
+  const consCluster = str.slice(0,firstCons(str))
+  // console.log(consCluster)
+
+  let res = '';
+
+  // if(consCluster.length){
+  //   res = str.slice(firstCons(str)) + consCluster + 'ay';
+    
+  //   console.log(res)
+  //   // return str.slice(0,firstCons(str))
+  // } else {
+  //   console.log('0')
+  // }
+
+  consCluster.length 
+    ? res = str.slice(firstCons(str)) + consCluster + 'ay'
+    : res = str + 'way';
+    
+  return res;
+}
+
+console.log(translatePigLatin("consonant"));
+
+console.log(translatePigLatin("paragraphs"));
+
+console.log(translatePigLatin("algorithm"));
+
+console.log(translatePigLatin("ccc"));

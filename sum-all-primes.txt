@@ -1,0 +1,45 @@
+function sumPrimes(num) {
+
+  // Get an array of prime numbers 
+  const primeNumArr = number => {
+    const primeNums = [];
+    primeNums[1] = 0;
+    
+    for(let k = 2; k <= number; k++){
+      primeNums[k]=1;
+    }
+
+    for(let k = 2; k * k <= number; k++){
+      if(primeNums[k] == 1){
+        for(let l = k * k; l <= number; l += k){
+          primeNums[l] = 0;
+        }
+      }
+    }
+    
+    const numbersArr = [];
+    for(let i = 0; i < primeNums.length; i++){
+        if(primeNums[i] == 1){
+          numbersArr.push(i);
+        }
+    }
+    
+    return numbersArr;
+  }
+
+  const primeNums = primeNumArr(num);
+  // console.log(primeNums)
+
+  // Add all of the numbers in the primeNumArr
+  const primeTotal = arr => {
+    const sumItUp = (total, num) => {
+      return total + num;
+    }
+    
+    return arr.reduce(sumItUp);
+  }
+
+  return primeTotal(primeNums);
+}
+
+console.log(sumPrimes(12));

@@ -1,0 +1,22 @@
+function dropElements(arr, func) {
+  
+  const res = [];
+  let condition = false;
+
+  // loop through the array.
+  for(let i = 0; i < arr.length; i++){
+    // process each number in the array
+    // through the passed in function.
+    if(func(arr[i]) && condition === false){
+      res.push(arr[i]);
+      condition = true;
+    } else if(condition === true){
+      res.push(arr[i]);
+    }
+  }
+
+  console.log(res)
+  return res;
+}
+
+dropElements([1, 2, 3, 9, 2], function(n) {return n > 2;});

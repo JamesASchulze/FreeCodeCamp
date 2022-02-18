@@ -1,0 +1,14 @@
+function pairElement(str) {
+  const res = [];
+
+  for(let i = 0; i < str.length; i++){
+    if(str[i] == 'A'){res.push(['A','T'])}
+    if(str[i] == 'T'){res.push(['T','A'])}
+    if(str[i] == 'C'){res.push(['C','G'])}
+    if(str[i] == 'G'){res.push(['G','C'])}
+  }
+
+  return res;
+}
+
+console.log(pairElement("GCG"));

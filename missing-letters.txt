@@ -1,0 +1,56 @@
+function fearNotLetter(str) {
+  // Array of the Alphabet
+  const alphabet = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
+
+
+  const startingLetter = str[0];
+  const getStartingNum = (string) => {
+    for(let i = 0; i < alphabet.length; i++){
+      if(alphabet[i] === string[0]){
+        // console.log(alphabet[i] + " = " + i)
+        return {'firstLetter':alphabet[i],'firstNumber':i};
+      }
+    }
+  }
+  const {firstLetter, firstNumber} = getStartingNum(startingLetter)
+  // console.log("first letter is: " + firstLetter)
+  // console.log("first number is: " + firstNumber)
+
+  const getLastLetter = (string) => {
+    const lastLetter = string[string.length - 1];
+    for(let i = 0; i < alphabet.length; i++){
+      if(alphabet[i] === lastLetter){
+        const lastNumber = i;
+        return {lastLetter,lastNumber};
+      }
+    }
+  }
+
+  const {lastLetter, lastNumber} = getLastLetter(str);
+  // console.log("last letter is: " + lastLetter)
+  // console.log("last number is: " + lastNumber)
+
+  const getMissingNumber = (startNum, endNum) => {
+    let checkNum = startNum;
+
+    for(let i = startNum; i <= endNum; i++){
+      // console.log('checkNum is: ' + checkNum + ' = ' + alphabet[checkNum])
+      // console.log('i is: ' + i + ' = ' + alphabet[i])
+      if(str.indexOf(alphabet[i]) == -1){
+        // console.log(alphabet[i])
+        return alphabet[i];
+      }
+      // if(i == endNum){
+      //   return undefined
+      // }
+      checkNum++
+    }
+  }
+
+  const missingNum = getMissingNumber(firstNumber, lastNumber)
+  console.log(missingNum)
+
+  return missingNum;
+}
+
+fearNotLetter("stu");

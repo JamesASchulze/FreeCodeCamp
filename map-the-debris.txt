@@ -1,0 +1,18 @@
+function orbitalPeriod(arr) {
+  const GM = 398600.4418;
+  const earthRadius = 6367.4447;
+
+  // Loop over and return the mapped arr
+  return arr.map(sat => {
+    // get the raticand 
+    const raticand = Math.pow(sat.avgAlt + earthRadius, 3) / GM;
+    
+    // Calculate the the orbital period
+    const orbPeriod = 2 * Math.PI * Math.sqrt(raticand);
+
+    // Return an object with the satellite's name and rounded orbital period
+    return {name:sat.name,orbitalPeriod:Math.round(orbPeriod)}
+  })
+}
+
+console.log(orbitalPeriod([{name : "sputnik", avgAlt : 35873.5553}]));

@@ -1,0 +1,24 @@
+function uniteUnique(arr) {
+  const res = [];
+
+  // Add concat all of the arrays together.
+  const concated = args => {
+    let res = [];
+    for(let i = 0; i < arguments.length; i++){
+      res = res.concat(arguments[i])
+    }
+    return res;
+  } 
+  const totaledArr = concated(arguments);
+
+  // Remove duplicates.
+  for(let i = 0; i < totaledArr.length; i++){
+    if(res.indexOf(totaledArr[i]) === -1){
+      res.push(totaledArr[i])
+    }
+  }
+  
+  return res;
+}
+
+uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1]);

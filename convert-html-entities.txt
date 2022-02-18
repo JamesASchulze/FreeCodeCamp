@@ -1,0 +1,32 @@
+function convertHTML(str) {
+  const sanitize = str => {
+    let res = str;
+    
+    if(str.includes("&")){
+      res = res.replaceAll(/&/g,"&amp;")
+    }
+    
+    if(str.includes("<")){
+      res = res.replaceAll(/</g,"&lt;")
+    }
+    
+    if(str.includes(">")){
+      res = res.replaceAll(/>/g,"&gt;")
+    }
+    
+    if(str.includes("'")){
+      res = res.replaceAll(/'/g,"&apos;")
+    }
+
+    if(str.includes('"')){
+      res = res.replaceAll(/"/g,"&quot;")
+    }
+    return res;
+  }
+
+  const res = sanitize(str)
+
+  return res;
+}
+
+convertHTML(`'"Hamburgers < Pizza < Tacos"'`);

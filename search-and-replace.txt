@@ -1,0 +1,33 @@
+function myReplace(str, before, after) {
+  
+  let res = str;
+
+  const properCasedWord = (orig, replacement) => {
+    let res = '';
+
+    // test for capital letter
+    for(let i = 0; i < replacement.length; i++){
+      if(i === 0){
+        if(/[A-Z]/.test( orig[0])){
+          res = replacement[0]
+          res = res.toUpperCase()
+        } else {
+          res = replacement[0];
+          res = res.toLowerCase();
+        }
+      } else {
+        res = res + replacement[i];
+      }
+    }
+    return res;
+  }
+
+  const replacement = properCasedWord(before, after)
+
+  // Make the switch
+  res = str.replace(before, replacement)
+
+  return res;
+}
+
+console.log(myReplace("A quick brown fox jumped over the lazy dog", "jumped", "leaped"));

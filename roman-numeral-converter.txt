@@ -1,0 +1,39 @@
+function convertToRoman(num) {
+  // Response variable.
+  const res = [];
+
+  // The "input" variable holds the number that was passed 
+  // into the convertToRoman function after it has been
+  // converted to a string, split into an array and reversed. 
+  const input = num.toString().split('').reverse();
+  
+  const lowerNums = ['I','X','C','M'];
+  const midNums =   ['V','L','D'];
+  const upperNums = ['X','C','M'];
+
+  // console.log(input)
+  // console.log('input length = ' + input.length)
+
+  for(let i = 0; i < input.length; i++){
+    // console.log('input[' + i + '] = ' + input[i])
+    // console.log("i = " + i)
+
+    switch(input[i]){
+      case '0': res.unshift(''); break;
+      case '1': res.unshift(lowerNums[i]); break;
+      case '2': res.unshift(lowerNums[i]+lowerNums[i]); break;
+      case '3': res.unshift(lowerNums[i]+lowerNums[i]+lowerNums[i]); break;
+      case '4': res.unshift(lowerNums[i]+midNums[i]); break;
+      case '5': res.unshift(midNums[i]); break;
+      case '6': res.unshift(midNums[i]+lowerNums[i]); break;
+      case '7': res.unshift(midNums[i]+lowerNums[i]+lowerNums[i]); break;
+      case '8': res.unshift(midNums[i]+lowerNums[i]+lowerNums[i]+lowerNums[i]); break;
+      case '9': res.unshift(lowerNums[i]+upperNums[i]); break;
+    }
+  }
+  
+  // Convert/join the response array into one string then return. 
+  return res.join('');
+}
+
+console.log(convertToRoman(3999));

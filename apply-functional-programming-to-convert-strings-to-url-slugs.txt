@@ -1,0 +1,20 @@
+// Only change code below this line
+function urlSlug(title) {
+    // const res = title;
+
+    // Response needs to be lower case.
+    const res = [].concat(
+                    title
+                        .trim()
+                        .split(/\W+/g)
+                        .join("-")
+                ).toString()
+                .toLowerCase();
+
+
+    console.log(res);
+    return res;
+
+}
+// Only change code above this line
+urlSlug(" Winter Is  Coming")

@@ -1,0 +1,29 @@
+function truthCheck(collection, pre) {
+  // console.log(pre)
+  // console.log(collection)
+
+  let res = true;
+  
+  collection.forEach(obj => {
+    if(!obj.hasOwnProperty(pre)){
+      console.log("does not have the 'pre'")
+      res = false
+    }
+    if(obj[pre] == false){
+      console.log("== false")
+      res = false
+    }
+    if(obj[pre] == null){
+      console.log("=== null")
+      res = false
+    }
+    if(Object.is(obj[pre], NaN)){
+      console.log(obj[pre])
+      res = false
+    }
+  })
+  console.log(res)
+  return res;
+}
+
+truthCheck([{"single": "double"}, {"single": NaN}], "single");

@@ -1,0 +1,34 @@
+function telephoneCheck(str) {
+  const matchList = /^(1\s\d{3}|1\d{3}|\d{3}|1\s\(\d{3}\)|1\(\d{3}\)|\(\d{3}\))(\-\d{3}|\s\d{3}|\d{3})(\-\d{4}|\s\d{4}|\d{4})$/;
+
+  if(matchList.test(str)){
+    return true;
+  }
+
+  // for(let i = 0; i < matchList.length; i++){
+  //   // console.log(str.test(matchList[i]))
+  //   // console.log(matchList[i])
+  //   // console.log(matchList[i].test(str))
+  //   if(matchList[i].test(str)){
+  //     return true;
+  //   }
+  // }
+  // console.log(str.length)
+  return false;
+}
+
+// console.log(telephoneCheck("(555)555-5555"));   // ✅
+// console.log(telephoneCheck("1(555)555-5555"));  // ✅
+// console.log(telephoneCheck("(555) 555-5555"));  // ✅
+// console.log(telephoneCheck("1(555) 555-5555")); // ✅
+// console.log(telephoneCheck("1 (555) 555-5555"));// ✅
+// console.log(telephoneCheck("555-555-5555"));    // ✅
+// console.log(telephoneCheck("1 555-555-5555"));  // ✅
+// console.log(telephoneCheck("1555-555-5555"));   // ✅
+// console.log(telephoneCheck("555 555 5555"));    // ✅
+// console.log(telephoneCheck("1 555 555 5555"));  // ✅
+// console.log(telephoneCheck("5555555555"));      // ✅
+// console.log(telephoneCheck("15555555555"));     // ✅
+// console.log(telephoneCheck("123**&!!asdf#"));   // ✅
+// console.log(telephoneCheck("(275)76227382"));   // ✅
+// console.log(telephoneCheck("27576227382"));     // ✅

@@ -1,0 +1,44 @@
+function sumFibs(num) {
+  
+  // Get the Fibonacci Number
+  const getFibNum = num => {
+    const res = [1,1];
+    // let prevNum = 1;
+    let thisNum = res[res.length-1];
+
+    while(thisNum <= num && thisNum > 0){
+      let num1 = res[res.length-1];
+      let num2 = res[res.length-2];
+      thisNum = num1 + num2;
+      
+      if(thisNum <= num){
+        res.push(thisNum);
+      }
+    }
+
+    return res;
+  }
+
+  const fibArr = getFibNum(num);
+  // console.log(fibArr);
+
+  // Remove all of the even numbers
+  const oddFibArr = [];
+  fibArr.forEach(num => {
+    if(num % 2){
+      oddFibArr.push(num);
+    }
+  })
+  // console.log(oddFibArr);
+
+  // Add all of the remaining odd numbers together
+  const sumItUp = (total, num) => {
+    return total + num;
+  }
+  const summedUp = oddFibArr.reduce(sumItUp);
+  // console.log(summedUp);
+
+  return summedUp;
+}
+
+sumFibs(1000);

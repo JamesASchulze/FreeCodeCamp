@@ -1,0 +1,37 @@
+function destroyer(arr) {
+  const search = [...arr];
+  const targets = [];
+  let res = [];
+  
+  //  console.log(arguments)
+  
+  for(let i = 1; i < arguments.length; i++){
+    targets.push(arguments[i])
+  }
+  // console.log(targets)
+  targets.forEach(x => {
+    // console.log(search.includes(x));
+    
+    
+
+    const destroyTarget = (target) => {
+      
+      if(search.includes(target)){
+        const targetIndex = search.indexOf(target)
+        // console.log(targetIndex)
+        search.splice(targetIndex, 1)
+        // console.log(search)
+        destroyTarget(target)
+      } 
+
+    }
+    destroyTarget(x)
+    
+  })
+  
+
+  // console.log(search)
+  return search;
+}
+
+destroyer([1, 2, 3, 1, 2, 3], 2, 3);

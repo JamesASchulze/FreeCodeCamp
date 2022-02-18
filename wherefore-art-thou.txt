@@ -1,0 +1,33 @@
+function whatIsInAName(collection, source) {
+  var arr = [];
+  // Only change code below this line
+
+  // Get the properties of the source.
+  const sourceKeys =  Object.keys(source);
+  
+  let keysMatched = 0;
+  
+  for (var j = 0; j < collection.length; j++) {
+    for (var i = 0; i < sourceKeys.length; i++) {
+      // console.log(collection[j][sourceKeys[i]])
+      if ( collection[j].hasOwnProperty(sourceKeys[i]) 
+        && collection[j][sourceKeys[i]] == source[sourceKeys[i]]
+      ) {
+        keysMatched++;
+      } 
+    }
+    // check if the all keys exist with their values
+    // console.log(keysMatched)
+    if (keysMatched == sourceKeys.length ) {
+      arr.push(collection[j]);
+    }
+    keysMatched = 0;
+  }  
+  
+  return arr;
+  // Only change code above this line
+}
+
+console.log(whatIsInAName([{ first: "Romeo", last: "Montague" }, { first: "Mercutio", last: null }, { first: "Tybalt", last: "Capulet" }], { last: "Capulet" }))
+
+console.log(whatIsInAName([{ "apple": 1, "bat": 2 }, { "bat": 2 }, { "apple": 1, "bat": 2, "cookie": 2 }], { "apple": 1, "bat": 2 }));
