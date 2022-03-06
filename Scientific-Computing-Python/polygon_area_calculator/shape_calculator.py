@@ -44,10 +44,11 @@ class Rectangle:
       return 0
 
     row = 0  
-    while row <= self.height:
-
-      res += self.width // sq.width
+    while row <= self.height:      
       row += sq.height
+    
+      if row <= self.height:
+        res += self.width // sq.width
     
     return res
     
