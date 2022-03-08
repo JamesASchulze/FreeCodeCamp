@@ -16,6 +16,20 @@ class Hat:
 
         print(self.contents)
 
+    def draw(self,num_to_remove):
+        res = []
 
+        if num_to_remove > len(self.contents):
+            for ball in self.contents:
+                res.append(ball)
+        else:
+            i = 0
+            while i < num_to_remove:
+                ball = self.contents.pop(random.randrange(0,len(self.contents)))
+                res.append(ball)
+                
+                i += 1
+        return res
+      
 def experiment(hat, expected_balls, num_balls_drawn, num_experiments):
     pass
