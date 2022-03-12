@@ -5,11 +5,9 @@ class Hat:
     def __init__(self,**args):
         self.ball_collection = []
         for color, qty in args.items():
-            i = 0
-            while i < qty:
+            for i in range(qty):
                 self.ball_collection.append(color)
-                i += 1
-
+        
         self.contents = copy.deepcopy(self.ball_collection)
 
         print(self.contents)
@@ -22,12 +20,9 @@ class Hat:
             for ball in self.contents:
                 res.append(ball)
         else:
-            i = 0
-        while i < num_to_remove:
-            ball = self.contents.pop(random.randrange(0,len(self.contents)))
-            res.append(ball)
-          
-            i += 1
+            for i in range(num_to_remove):
+                ball = self.contents.pop(random.randrange(0,len(self.contents)))
+                res.append(ball)
         return res
       
 def experiment(hat, expected_balls, num_balls_drawn, num_experiments):
